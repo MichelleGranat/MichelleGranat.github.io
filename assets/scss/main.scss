@@ -1,1 +1,8 @@
-@import "./partials/common/header.scss"
+/* Global */
+@import "./variables.scss";
+@import "./globals.scss";
+/* End Global*/
+
+/* Common */
+@import "./partials/common/header.scss";
+/* End Common*/
