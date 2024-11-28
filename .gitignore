@@ -1,3 +1,5 @@
 /resources
+/public
 /assets/css
 .DS_Store
+.hugo_build.lock
