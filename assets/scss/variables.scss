@@ -1,2 +1,21 @@
-$background-color: #FFF7ED;
-$purple: #D8B4FE;
+// Colors
+$colors: (
+    "primary": #D8B4FE,
+    "background": #FFF7ED,
+    "slate": #F1F5F9,
+    "blue": #60a5fa,
+    "sky": #38bdf8,
+    "cyan": #22d3ee,
+    "teal": #2dd4bf,
+    "amber": #fcd34d,
+    "orange": #fb923c,
+
+);
+
+// Breakpoints
+$breakpoints: (
+    "sm": 464px,
+    "md": 744px,
+    "lx": 984px,
+    "xl": 1248px,
+);

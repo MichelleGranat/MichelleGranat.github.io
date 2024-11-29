@@ -2,5 +2,5 @@ body {
     padding: 0;
     margin: 0;
 
-    background-color: $background-color;
+    background-color: map-get($colors, "background");
 }
