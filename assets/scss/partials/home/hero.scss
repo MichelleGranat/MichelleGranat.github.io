@@ -3,7 +3,7 @@
     width: 100%;
 
     margin: auto;
-    margin-top: 67px;
+    margin-top: 55px;
 
     display: flex;
     justify-content: space-between;
@@ -26,7 +26,7 @@
     gap: 32px;
 
     &-github {
-        background-color: #F1F5F9;
+        background-color: map-get($colors, "slate");
 
         width: 72px;
         height: 72px;
@@ -44,7 +44,7 @@
     }
 
     &-bluesky {
-        background-color: #38BDF8;
+        background-color: map-get($colors, "sky");
 
         width: 72px;
         height: 72px;
@@ -62,7 +62,7 @@
     }
 
     &-email {
-        background-color: #2DD4BF;
+        background-color: map-get($colors, "teal");
 
         width: 72px;
         height: 72px;
@@ -102,22 +102,41 @@
 }
 
 .hero-cta {
+    align-self: start;
+
     color: black;
     text-decoration: none;
 
-    font-family: "Source Code Pro";
-    font-size: 28px;
-    font-weight: 700;
-
-    padding: 23px;
-    background-color: $purple;
+    padding: 15px 20px;
+    background-color: map-get($colors, "primary");
 
     border-radius: 20px;
     border-style: solid;
     border-color: black;
     border-width: 3px;
 
-    box-shadow: 8px 8px 0 black;
+    box-shadow: 5px 5px 0 black;
 
-    display: inline;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    gap: 10px;
+
+    p {
+        font-family: "Source Code Pro";
+        font-size: 24px;
+        font-weight: 700;
+
+        white-space: nowrap;
+
+        margin: 0;
+        margin-bottom: 2px;
+    }
+
+    img {
+        width: 40px;
+        height: 40px;
+
+        margin: 0;
+    }
 }
