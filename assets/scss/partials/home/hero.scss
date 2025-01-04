@@ -7,7 +7,7 @@
     width: 100%;
 
     margin: auto;
-    margin-top: 45px;
+    margin-top: 64px;
 
     display: flex;
     justify-content: space-between;
@@ -87,20 +87,22 @@
 .hero-left {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .hero-text {
+    margin-bottom: 32px;
+
     h1 {
-        font-family: "Inter";
-        font-weight: 700;
+        font-family: "IBM Plex Mono";
+        font-weight: 600;
         font-size: 75px;
 
         margin: 0;
         margin-bottom: 10px;
     }
     p {
-        font-family: "Source Code Pro";
+        font-family: "Atkinson Hyperlegible";
         font-size: 24px;
         font-weight: 400;
 
@@ -118,7 +120,7 @@
     color: black;
     text-decoration: none;
 
-    padding: 15px 20px;
+    padding: 14px 22px;
     background-color: map.get(c.$colors, "primary");
 
     border-radius: 20px;
@@ -134,7 +136,7 @@
     gap: 10px;
 
     p {
-        font-family: "Source Code Pro";
+        font-family: "IBM Plex Mono";
         font-size: 24px;
         font-weight: 700;
 
