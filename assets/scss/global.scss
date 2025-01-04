@@ -1,4 +1,10 @@
+@use "sass:map";
+
+@use "abstracts/color.scss" as c;
+
 body {
     padding: 0;
     margin: 0;
+
+    background-color: map.get(c.$colors, "background");
 }

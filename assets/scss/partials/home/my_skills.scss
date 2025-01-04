@@ -1,0 +1,190 @@
+@use "sass:map";
+
+@use "../../abstracts/color.scss" as c;
+
+.my-skills {
+    width: 100%;
+
+    margin: 0;
+    padding: 32px;
+
+    background-color: #bbf7d0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.my-skills .container {
+    max-width: 568px;
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+
+
+    h3 {
+        font-family: "IBM Plex Mono";
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 32px;
+
+        margin: 0;
+        margin-bottom: 32px;
+    }
+
+    .tabs {
+        width: 100%;
+        display: flex;
+
+        padding: 0;
+        margin: 0;
+
+        .tab {
+            flex-grow: 1;
+            text-align: center;
+            padding: 8px 16px;
+
+            background-color: white;
+
+            border-radius: 0px;
+            border-style: solid none none solid;
+            border-color: black;
+            border-width: 3px;
+
+            cursor: pointer;
+
+            font-family: "IBM Plex Mono";
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 20px;
+
+            -webkit-user-select: none; /* Safari */
+            -ms-user-select: none; /* IE 10 and IE 11 */
+            user-select: none; /* Standard syntax */
+        }
+
+        :first-child {
+            border-radius: 15px 0px 0px 0px;
+        }
+
+        :last-child {
+            border-radius: 0px 15px 0px 0px;
+            border-style: solid solid none solid;
+            box-shadow: 4px 4px 0 black;
+        }
+
+        .active {
+            background-color: map.get(c.$colors, "primary");
+        }
+    }
+
+    .tabs-content {
+        list-style-type: none;
+
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        background-color: white;
+
+        border-radius: 0px 0px 15px 15px;
+        border-style: solid solid solid solid;
+        border-color: black;
+        border-width: 3px;
+
+        box-shadow: 4px 4px 0 black;
+
+        padding: 32px;
+        margin: 0;
+
+        .active {
+            display: flex;
+        }
+
+        .rust {
+            background-color: #FDBA74;
+        }
+
+        .go {
+            background-color: #7DD3FC;
+        }
+
+        .cpp {
+            background-color: #A5B4FC;
+        }
+
+        .linux {
+            background-color: #FDE68A;
+        }
+
+        .docker {
+            background-color: #7DD3FC;
+        }
+        
+        .bash {
+            background-color: #F1F5F9;
+        }
+
+        .html {
+            background-color: #FDBA74;
+        }
+
+        .tailwind {
+            background-color: #A5F3FC;
+        }
+
+        .typescript {
+            background-color: #7DD3FC;
+        }
+
+        .svelte {
+            background-color: #FDBA74;
+        }
+
+        .git {
+            background-color: #FCA5A5;
+        }
+
+        .hugo {
+            background-color: #F9A8D4;
+        }
+
+        .sass {
+            background-color: #FDA4AF;
+        }
+    }
+
+    li {
+        display: none;
+        align-items: center;
+        gap: 10px;
+
+        padding: 8px 16px;
+
+        border-radius: 8px;
+        border-style: solid;
+        border-color: black;
+        border-width: 2px;
+
+        box-shadow: 1.5px 1.5px 0 black;
+
+        h4 {
+            font-family: "Atkinson Hyperlegible";
+            font-size: 18px;
+            font-weight: 400;
+
+            margin: 0;
+        }
+
+        img {
+            width: 28px;
+            height: 28px;
+
+            margin: 0;
+        }
+    }
+}

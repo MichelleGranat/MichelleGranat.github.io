@@ -1,0 +1,148 @@
+@use "sass:map";
+
+@use "../../abstracts/color.scss" as c;
+
+.highlighted-post {
+    width: 100%;
+
+    margin: 0;
+    padding: 32px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    background-color: #fecdd3;
+
+    border-left-style: solid;
+    border-left-color: black;
+    border-left-width: 4px;
+
+    h3 {
+        font-family: "IBM Plex Mono";
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 32px;
+
+        margin: 0;
+    }
+
+    .post {
+        max-width: 504px; ////(568-64)
+        width: 100%;
+
+        background-color: white;
+
+        border-radius: 15px;
+        border-style: solid;
+        border-color: black;
+        border-width: 3px;
+
+        box-shadow: 4px 4px 0 black;
+
+        padding: 32px;
+
+        &-time {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            margin: 0;
+            margin-bottom: 16px;
+
+            p {
+                color: #666;
+
+                font-family: "Atkinson Hyperlegible";
+                font-size: 20px;
+                font-weight: 400;
+
+                line-height: 150%;
+
+                margin: 0;
+            }
+
+            img {
+                width: 24px;
+                height: 24px;
+
+                margin: 0;
+            }
+        }
+
+        &-title {
+            font-family: "IBM Plex Mono";
+            font-weight: 700;
+            font-size: 48px;
+            line-height: 48px;
+
+            margin: 0;
+            margin-bottom: 32px;
+        }
+
+        &-description {
+            font-family: "Atkinson Hyperlegible";
+            font-size: 24px;
+            font-weight: 400;
+
+            margin: 0;
+            margin-bottom: 32px;
+        }
+
+        &-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+        }
+
+        &-tags {
+            list-style-type: none;
+
+            display: flex;
+            gap: 10px;
+
+            margin: 0;
+            padding: 0;
+
+            li {
+                font-family: "Atkinson Hyperlegible";
+                font-size: 18px;
+                font-weight: 400;
+
+                padding: 8px 16px;
+                background-color: #FAFAFA;
+
+                border-radius: 8px;
+                border-style: solid;
+                border-color: black;
+                border-width: 2px;
+
+                box-shadow: 1.5px 1.5px 0 black;
+            }
+        }
+
+        &-cta {
+            align-self: start;
+
+            color: black;
+            text-decoration: none;
+
+            padding: 16px 16px;
+            background-color: map.get(c.$colors, "primary");
+
+            border-radius: 12px;
+            border-style: solid;
+            border-color: black;
+            border-width: 2px;
+
+            box-shadow: 1px 1px 0 black;
+
+            img {
+                width: 28px;
+                height: 28px;
+
+                margin: 0;
+            }
+        }
+    }
+}
