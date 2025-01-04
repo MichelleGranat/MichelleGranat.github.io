@@ -1,3 +1,5 @@
+@use "../../abstracts/responsive.scss" as r;
+
 .header {
     width: 100%;
 
@@ -16,6 +18,26 @@
     align-items: center;
 }
 
+@include r.xl {
+    .header-container {
+        width: auto;
+        margin: 0;
+        margin-right: 40px;
+        margin-left: 40px;
+    }
+}
+
+@include r.md {
+    .header-container {
+        height: 72px;
+
+        width: auto;
+        margin: 0;
+        margin-right: 25px;
+        margin-left: 25px;
+    }
+}
+
 .header-logo {
     font-family: "IBM Plex Mono";
     font-size: 32px;
@@ -25,6 +47,12 @@
     background-color: black;
 
     padding: 20px 15px;
+}
+
+@include r.md {
+    .header-logo {
+        font-size: 24px;
+    }
 }
 
 .header-nav {
@@ -42,5 +70,11 @@
 
     .active {
         text-decoration: underline;
+    }
+}
+
+@include r.md {
+    .header-nav-item {
+        font-size: 20px;
     }
 }
