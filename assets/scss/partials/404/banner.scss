@@ -1,6 +1,6 @@
 @use "sass:map";
 
-@use "../../variables.scss" as v;
+@use "../../abstracts/color.scss" as c;
 
 .banner {
     max-width: 1200px;
@@ -63,7 +63,7 @@
     font-size: 36px;
     font-weight: 700;
 
-    background-color: map.get(v.$colors, "primary" );
+    background-color: map.get(c.$colors, "primary" );
 
     padding: 10px 30px;
     margin: 0;

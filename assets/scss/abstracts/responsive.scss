@@ -22,3 +22,10 @@
         @content;
     }
 }
+
+$breakpoints: (
+    "sm": 464px,
+    "md": 744px,
+    "lx": 984px,
+    "xl": 1248px,
+);
