@@ -1,17 +1,11 @@
-/* Global */
-@import "./variables.scss";
-@import "./utils.scss";
-@import "./globals.scss";
-/* End Global*/
-
 /* Common */
-@import "./partials/common/header.scss";
+@use "./partials/common/header.scss";
 /* End Common*/
 
 /* 404 */
-@import "./partials/404/banner.scss";
+@use "./partials/404/banner.scss";
 /* 404  End */
 
 /* Home */
-@import "./partials/home/hero.scss";
+@use "./partials/home/hero.scss";
 /* Home  End */
