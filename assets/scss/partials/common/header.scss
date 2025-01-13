@@ -6,10 +6,7 @@
     margin: 0;
     margin: auto;
 
-    padding-left: 1.5rem;
-    padding-left: clamp(1.5rem, 0.8556701030927835rem + 2.7491408934707904vw, 3rem);
-    padding-right: 1.5rem;
-    padding-right: clamp(1.5rem, 0.8556701030927835rem + 2.7491408934707904vw, 3rem);
+    @include global.fluid-padding(23.4375rem, 75rem, 1.5rem, 3rem);
 
     display: flex;
     justify-content: space-between;
