@@ -64,7 +64,7 @@
 // Sets sans font
 @mixin font-sans($min-size, $max-size, $weight) {
     font-family: "Atkinson Hyperlegible";
-    @include fluid-type(375px, 1200px, $min-size, $max-size);
+    @include fluid-type(23.4375rem, 75rem, $min-size, $max-size); // 375px, 1200px
     font-weight: $weight;
 }
 
