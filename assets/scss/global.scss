@@ -66,11 +66,12 @@
     font-family: "Atkinson Hyperlegible";
     @include fluid-type(23.4375rem, 75rem, $min-size, $max-size); // 375px, 1200px
     font-weight: $weight;
+    line-height: 150%;
 }
 
 /** ELEMENTS **/
 
-// Sets styleing for a button
+// Sets styling for a button
 @mixin button($color) {
     // Basic style
     text-decoration: none;
@@ -88,6 +89,47 @@
 
     // Border
     @include fluid-property(border-radius, 23.4375rem, 75rem, 0.5rem, 1rem);
+    border-style: solid;
+    border-color: black;
+    @include fluid-property(border-width, 23.4375rem, 75rem, 0.125rem, 0.1875rem);
+
+    // Shadow
+    @include fluid-shadow(23.4375rem, 75rem, 0.125rem, 0.25rem);
+
+    // Animation
+    transition-duration: 100ms;
+    transition-timing-function: ease;
+    &:hover {
+        transform: translate(4px, 4px);
+        box-shadow: 0px 0px 0 black;
+    }
+}
+
+// Sets styling for a social media element
+@mixin social($color) {
+    // Basic style
+    text-decoration: none;
+    color: black;
+
+    // Button color
+    background-color: $color;
+
+    // Layout
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    // Size
+    @include fluid-property(width, 46.5rem, 75rem, 3.5rem, 4.5rem);
+    @include fluid-property(height, 46.5rem, 75rem, 3.5rem, 4.5rem);
+
+    img {
+        @include fluid-property(width, 46.5rem, 75rem, 2.2rem, 2.625rem);
+        @include fluid-property(height, 46.5rem, 75rem, 2.2rem, 2.625rem);
+    }
+
+    // Border
+    @include fluid-property(border-radius, 46.5rem, 75rem, 0.7rem, 1rem);
     border-style: solid;
     border-color: black;
     @include fluid-property(border-width, 23.4375rem, 75rem, 0.125rem, 0.1875rem);

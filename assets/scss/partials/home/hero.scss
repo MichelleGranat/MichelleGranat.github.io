@@ -1,109 +1,64 @@
 @use "sass:map";
 
-@use "../../abstracts/color.scss" as c;
+@use "../../abstracts/color.scss";
+@use "../../abstracts/responsive.scss";
+@use "../../global.scss";
 
 .hero {
-    max-width: 1200px;
-    width: 100%;
-    height: calc(100vh - 82px - 64px - 30px);
+    max-width: 78rem;
 
+    margin: 0;
     margin: auto;
-    margin-bottom: 30px;
+    margin-top: 1rem;
+    @include global.fluid-property(margin-bottom, 23.4375rem, 75rem, 2rem, 4rem);
+
+    @include global.fluid-property(padding-left, 23.4375rem, 75rem, 1.5rem, 3rem);
+    @include global.fluid-property(padding-right, 46.5rem, 75rem, 0rem, 3rem);
 
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    gap: 0;
+}
+
+@include responsive.md {
+    .hero {
+        @include global.fluid-property(padding-right, 23.4375rem, 75rem, 1.5rem, 3rem);
+
+        flex-direction: column;
+
+        gap: 2rem;
+        margin-top: 2rem;
+    }
 }
 
 .hero-right {
     display: flex;
     flex-direction: column;
-    gap: 23px;
+    gap: 1.5rem;
     align-items: center;
     justify-content: center;
 }
 
 .avatar {
-    max-width: 450px;
-    max-height: 350px;
+    min-width: 20rem;
+    @include global.fluid-property(width, 46.5rem, 75rem, 15rem, 28rem);
 }
 
 .socials {
     display: flex;
-    gap: 32px;
+    @include global.fluid-property(gap, 46.5rem, 75rem, 1.5rem, 2rem);
 
     &-github {
-        background-color: map.get(c.$colors, "slate");
-
-        width: 72px;
-        height: 72px;
-
-        border-radius: 15px;
-        border-style: solid;
-        border-color: black;
-        border-width: 3px;
-
-        box-shadow: 4px 4px 0 black;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        transition-duration: 100ms;
-        transition-timing-function: ease;
-        &:hover {
-            transform: translate(4px, 4px);
-            box-shadow: 0px 0px 0 black;
-        }
+        @include global.social(map.get(color.$colors, "slate"));
     }
 
     &-bluesky {
-        background-color: map.get(c.$colors, "sky");
-
-        width: 72px;
-        height: 72px;
-
-        border-radius: 15px;
-        border-style: solid;
-        border-color: black;
-        border-width: 3px;
-
-        box-shadow: 4px 4px 0 black;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        transition-duration: 100ms;
-        transition-timing-function: ease;
-        &:hover {
-            transform: translate(4px, 4px);
-            box-shadow: 0px 0px 0 black;
-        }
+        @include global.social(map.get(color.$colors, "sky"));
     }
 
     &-email {
-        background-color: map.get(c.$colors, "teal");
-
-        width: 72px;
-        height: 72px;
-
-        border-radius: 15px;
-        border-style: solid;
-        border-color: black;
-        border-width: 3px;
-
-        box-shadow: 4px 4px 0 black;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        transition-duration: 100ms;
-        transition-timing-function: ease;
-        &:hover {
-            transform: translate(4px, 4px);
-            box-shadow: 0px 0px 0 black;
-        }
+        @include global.social(map.get(color.$colors, "teal"));
     }
 }
 
@@ -114,73 +69,68 @@
 }
 
 .hero-text {
-    margin-bottom: 32px;
+    margin-bottom: 1.8rem;
+    text-align: start;
 
     h1 {
-        font-family: "IBM Plex Mono";
-        font-weight: 600;
-        font-size: 75px;
+        @include global.font-mono(0.8rem, 4.35rem, 600);
 
         margin: 0;
-        margin-bottom: 10px;
+        margin-bottom: 0.05em;
     }
     p {
-        font-family: "Atkinson Hyperlegible";
-        font-size: 24px;
-        font-weight: 400;
+        @include global.font-sans(0.8rem, 1.5rem, 400);
 
-        line-height: 150%;
+        max-width: 45ch;
 
         color: #1A1A1A;
-
         margin: 0;
+    }
+}
+
+@include responsive.md {
+    .hero-text {
+        margin-bottom: 1.2rem;
+        text-align: center;
+
+        h1 {
+            @include global.font-mono(2rem, 5rem, 600);
+        }
+
+        p {
+            @include global.font-sans(1rem, 1.5rem, 400);
+        }
     }
 }
 
 .hero-cta {
     align-self: start;
 
-    color: black;
-    text-decoration: none;
-
-    padding: 14px 22px;
-    background-color: map.get(c.$colors, "primary");
-
-    border-radius: 15px;
-    border-style: solid;
-    border-color: black;
-    border-width: 3px;
-
-    box-shadow: 4px 4px 0 black;
+    @include global.button(map.get(color.$colors, "primary" ));
 
     display: flex;
     align-items: center;
     justify-items: center;
-    gap: 10px;
-
-    transition-duration: 100ms;
-    transition-timing-function: ease;
-    &:hover {
-        transform: translate(4px, 4px);
-        box-shadow: 0px 0px 0 black;
-    }
+    gap: 0.8em;
 
     p {
-        font-family: "IBM Plex Mono";
-        font-size: 24px;
-        font-weight: 700;
-
         white-space: nowrap;
 
         margin: 0;
-        margin-bottom: 2px;
-        margin-left: 15px;
+        margin-bottom: 0.125rem;
+        margin-left: 0.8em;
     }
 
     img {
-        width: 40px;
-        height: 40px;
+        width: 1.8em;
+        height: 1.8em;
 
         margin: 0;
+    }
+}
+
+@include responsive.md {
+    .hero-cta {
+        align-self: center;
     }
 }
