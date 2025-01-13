@@ -1,34 +1,43 @@
 @use "sass:map";
 
-@use "../../abstracts/color.scss" as c;
+@use "../../abstracts/color.scss";
+@use "../../abstracts/responsive.scss";
+@use "../../global.scss";
 
 .banner {
-    max-width: 1200px;
-    width: 100%;
+    max-width: 78rem;
 
+    margin: 0;
     margin: auto;
-    margin-top: 55px;
+    margin-top: 1.2rem;
+
+    @include global.fluid-padding(23.4375rem, 75rem, 1.5rem, 3rem);
 
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
 
-    gap: 32px;
+    gap: 2rem;
+}
+
+@include responsive.md {
+    .banner {
+        flex-direction: column;
+        gap: 1.2rem;
+        margin-top: 1.2rem;
+    }
 }
 
 .banner-right {
-    
-}
-
-.banner-avatar {
-    max-width: 354px;
-    max-height: 281px;
+    min-width: 15rem;
+    @include global.fluid-property(width, 46.5rem, 75rem, 15rem, 22rem);
 }
 
 .banner-left {
     display: flex;
     flex-direction: column;
-    gap: 64px;
+    @include global.fluid-property(gap, 23.4375rem, 75rem, 1rem, 3.5rem);
 }
 
 .banner-text {
@@ -37,18 +46,12 @@
     align-items: center;
 
     h1 {
-        font-family: "IBM Plex Mono";
-        font-size: 96px;
-        font-weight: 600;
-
+        @include global.font-mono(3rem, 6rem, 600);
         margin: 0;
     }
 
     p {
-        font-family: "IBM Plex Mono";
-        font-size: 64px;
-        font-weight: 600;
-
+        @include global.font-mono(1.2rem, 4rem, 600);
         margin: 0;
     }
 }
@@ -56,30 +59,6 @@
 .banner-button {
     align-self: center; 
 
-    text-decoration: none;
-    color: black;
-
-    font-family: "IBM Plex Mono";
-    font-size: 24px;
-    font-weight: 700;
-
-    background-color: map.get(c.$colors, "primary" );
-
-    padding: 14px 22px;
-    margin: 0;
-
-    border-color: black;
-    border-style: solid;
-    border-radius: 15px;
-    border-width: 3px;
-
-    box-shadow: 4px 4px 0 black;
-
-    transition-duration: 100ms;
-    transition-timing-function: ease;
-    &:hover {
-        transform: translate(4px, 4px);
-        box-shadow: 0px 0px 0 black;
-    }
+    @include global.button(map.get(color.$colors, "primary" ));
 }
 

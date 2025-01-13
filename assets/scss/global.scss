@@ -87,13 +87,13 @@
     margin: 0;
 
     // Border
-    @include fluid-property(border-radius, 46.5rem, 75rem, 0.6rem, 1rem);
+    @include fluid-property(border-radius, 23.4375rem, 75rem, 0.5rem, 1rem);
     border-style: solid;
     border-color: black;
-    @include fluid-property(border-width, 46.5rem, 75rem, 0.125rem, 0.1875rem);
+    @include fluid-property(border-width, 23.4375rem, 75rem, 0.125rem, 0.1875rem);
 
     // Shadow
-    @include fluid-shadow(46.5rem, 75rem, 0.1875rem, 0.25rem);
+    @include fluid-shadow(23.4375rem, 75rem, 0.125rem, 0.25rem);
 
     // Animation
     transition-duration: 100ms;
