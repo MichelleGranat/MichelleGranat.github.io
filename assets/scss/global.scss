@@ -1,5 +1,30 @@
 @use "sass:math";
 
+/** LAYOUT **/
+
+// Calculates fluid padding-left padding-right
+@mixin fluid-padding($min-vw, $max-vw, $min-value, $max-value) {
+	$factor: math.div(1, ($max-vw - $min-vw)) * ($max-value - $min-value);
+	$calc-value: unquote('#{ $min-value - ($min-vw * $factor) } + #{ 100vw * $factor }');
+
+    padding-left: $min-value; // Fallback for older browsers
+    padding-left: clamp(#{if($min-value > $max-value, $max-value, $min-value)}, #{$calc-value}, #{if($min-value > $max-value, $min-value, $max-value)});
+
+    padding-right: $min-value; // Fallback for older browsers
+    padding-right: clamp(#{if($min-value > $max-value, $max-value, $min-value)}, #{$calc-value}, #{if($min-value > $max-value, $min-value, $max-value)});
+}
+
+// Calculates fluid width
+@mixin fluid-width($min-vw, $max-vw, $min-value, $max-value) {
+	$factor: math.div(1, ($max-vw - $min-vw)) * ($max-value - $min-value);
+	$calc-value: unquote('#{ $min-value - ($min-vw * $factor) } + #{ 100vw * $factor }');
+
+    width: $min-value; // Fallback for older browsers
+    width: clamp(#{if($min-value > $max-value, $max-value, $min-value)}, #{$calc-value}, #{if($min-value > $max-value, $min-value, $max-value)});
+}
+
+/** TEXT **/
+
 // Prevents text from being selectable
 @mixin prevent-select {
     -webkit-user-select: none; /* Safari */
@@ -29,4 +54,40 @@
     font-family: "Atkinson Hyperlegible";
     @include fluid-type(375px, 1200px, $min-size, $max-size);
     font-weight: $weight;
+}
+
+/** ELEMENTS **/
+
+// Sets styleing for a button
+@mixin button($color) {
+    // Basic style
+    text-decoration: none;
+    color: black;
+
+    // Button color
+    background-color: $color;
+
+    // Button text
+    @include font-mono(1.5rem, 1.5rem, 700);
+
+    // Layout
+    padding: 0.5em 0.9em;
+    margin: 0;
+
+    // Border
+    border-radius: 15px;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+
+    // Shadow
+    box-shadow: 4px 4px 0 black;
+
+    // Animation
+    transition-duration: 100ms;
+    transition-timing-function: ease;
+    &:hover {
+        transform: translate(4px, 4px);
+        box-shadow: 0px 0px 0 black;
+    }
 }
