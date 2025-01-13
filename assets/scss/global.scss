@@ -14,13 +14,25 @@
     padding-right: clamp(#{if($min-value > $max-value, $max-value, $min-value)}, #{$calc-value}, #{if($min-value > $max-value, $min-value, $max-value)});
 }
 
-// Calculates fluid width
-@mixin fluid-width($min-vw, $max-vw, $min-value, $max-value) {
+// Calculates fluid shadow
+@mixin fluid-shadow($min-vw, $max-vw, $min-value, $max-value) {
 	$factor: math.div(1, ($max-vw - $min-vw)) * ($max-value - $min-value);
 	$calc-value: unquote('#{ $min-value - ($min-vw * $factor) } + #{ 100vw * $factor }');
 
-    width: $min-value; // Fallback for older browsers
-    width: clamp(#{if($min-value > $max-value, $max-value, $min-value)}, #{$calc-value}, #{if($min-value > $max-value, $min-value, $max-value)});
+    box-shadow: $min-value $min-value 0 black; // Fallback for older browsers
+    box-shadow: 
+        clamp(#{if($min-value > $max-value, $max-value, $min-value)}, #{$calc-value}, #{if($min-value > $max-value, $min-value, $max-value)}) 
+        clamp(#{if($min-value > $max-value, $max-value, $min-value)}, #{$calc-value}, #{if($min-value > $max-value, $min-value, $max-value)}) 
+        0 black;
+}
+
+// Calculates fluid value for property
+@mixin fluid-property($property, $min-vw, $max-vw, $min-value, $max-value) {
+	$factor: math.div(1, ($max-vw - $min-vw)) * ($max-value - $min-value);
+	$calc-value: unquote('#{ $min-value - ($min-vw * $factor) } + #{ 100vw * $factor }');
+
+    #{$property}: $min-value; // Fallback for older browsers
+    #{$property}: clamp(#{if($min-value > $max-value, $max-value, $min-value)}, #{$calc-value}, #{if($min-value > $max-value, $min-value, $max-value)});
 }
 
 /** TEXT **/
@@ -68,20 +80,20 @@
     background-color: $color;
 
     // Button text
-    @include font-mono(1.5rem, 1.5rem, 700);
+    @include font-mono(0.75rem, 1.5rem, 700);
 
     // Layout
     padding: 0.5em 0.9em;
     margin: 0;
 
     // Border
-    border-radius: 15px;
+    @include fluid-property(border-radius, 46.5rem, 75rem, 0.6rem, 1rem);
     border-style: solid;
     border-color: black;
-    border-width: 3px;
+    @include fluid-property(border-width, 46.5rem, 75rem, 0.125rem, 0.1875rem);
 
     // Shadow
-    box-shadow: 4px 4px 0 black;
+    @include fluid-shadow(46.5rem, 75rem, 0.1875rem, 0.25rem);
 
     // Animation
     transition-duration: 100ms;
