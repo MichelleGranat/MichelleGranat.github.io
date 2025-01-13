@@ -1,58 +1,29 @@
-@use "../../abstracts/responsive.scss" as r;
+@use "../../global.scss";
 
 .header {
-    width: 100%;
+    max-width: 78rem;
 
-    display: block;
-}
-
-.header-container {
-    max-width: 1200px;
-    height: 82px;
-    width: 100%;
-
+    margin: 0;
     margin: auto;
+
+    padding-left: 1.5rem;
+    padding-left: clamp(1.5rem, 0.8556701030927835rem + 2.7491408934707904vw, 3rem);
+    padding-right: 1.5rem;
+    padding-right: clamp(1.5rem, 0.8556701030927835rem + 2.7491408934707904vw, 3rem);
 
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-@include r.xl {
-    .header-container {
-        width: auto;
-        margin: 0;
-        margin-right: 40px;
-        margin-left: 40px;
-    }
-}
-
-@include r.md {
-    .header-container {
-        height: 72px;
-
-        width: auto;
-        margin: 0;
-        margin-right: 25px;
-        margin-left: 25px;
-    }
-}
-
 .header-logo {
-    font-family: "IBM Plex Mono";
-    font-size: 32px;
-    font-weight: 700;
+    @include global.prevent-select;
+    @include global.font-mono(1.2rem, 2rem, 700);
 
     color: white;
     background-color: black;
 
-    padding: 20px 15px;
-}
-
-@include r.md {
-    .header-logo {
-        font-size: 24px;
-    }
+    padding: 0.7em 0.5em;
 }
 
 .header-nav {
@@ -60,9 +31,7 @@
     gap: 25px;
 
     &-item {
-        font-family: "IBM Plex Mono";
-        font-size: 24px;
-        font-weight: 500;
+        @include global.font-mono(1rem, 1.5rem, 500);
 
         text-decoration: none;
         color: black;
@@ -70,11 +39,5 @@
 
     .active {
         text-decoration: underline;
-    }
-}
-
-@include r.md {
-    .header-nav-item {
-        font-size: 20px;
     }
 }
