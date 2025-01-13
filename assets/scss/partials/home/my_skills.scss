@@ -1,12 +1,14 @@
 @use "sass:map";
 
-@use "../../abstracts/color.scss" as c;
+@use "../../abstracts/color.scss";
+@use "../../abstracts/responsive.scss";
+@use "../../global.scss";
 
 .my-skills {
     width: 100%;
 
     margin: 0;
-    padding: 32px;
+    // padding: 2rem;
 
     background-color: #bbf7d0;
 
@@ -15,25 +17,27 @@
     align-items: end;
 }
 
+@media (max-width: 1000px) {
+    .my-skills {
+        align-items: center;
+    }
+}
+
 .my-skills .container {
-    max-width: 568px;
-    width: 100%;
+    padding: 2rem;
+    @include global.fluid-property(padding-left, 23.4375rem, 75rem, 1.5rem, 3rem);
 
     margin: 0;
-    padding: 0;
 
     display: flex;
     flex-direction: column;
 
-
     h3 {
-        font-family: "IBM Plex Mono";
-        font-weight: 500;
-        font-size: 32px;
-        line-height: 32px;
+        @include global.font-mono(1.5rem, 2rem, 500);
+        line-height: 2rem;
 
         margin: 0;
-        margin-bottom: 32px;
+        margin-bottom: 2rem;
     }
 
     .tabs {
@@ -57,10 +61,8 @@
 
             cursor: pointer;
 
-            font-family: "IBM Plex Mono";
-            font-weight: 500;
-            font-size: 20px;
-            line-height: 20px;
+            @include global.font-mono(0.8rem, 1.25rem, 500);
+            line-height: 1.25rem;
 
             -webkit-user-select: none; /* Safari */
             -ms-user-select: none; /* IE 10 and IE 11 */
@@ -71,17 +73,17 @@
         }
 
         :first-child {
-            border-radius: 15px 0px 0px 0px;
+            border-radius: 1rem 0px 0px 0px;
         }
 
         :last-child {
-            border-radius: 0px 15px 0px 0px;
+            border-radius: 0px 1rem 0px 0px;
             border-style: solid solid none solid;
-            box-shadow: 4px 4px 0 black;
+            box-shadow: 0.25rem 0.25rem 0 black;
         }
 
         .active {
-            background-color: map.get(c.$colors, "primary");
+            background-color: map.get(color.$colors, "primary");
         }
     }
 
@@ -101,7 +103,7 @@
 
         box-shadow: 4px 4px 0 black;
 
-        padding: 32px;
+        padding: 2rem;
         margin: 0;
 
         .active {
@@ -164,9 +166,9 @@
     li {
         display: none;
         align-items: center;
-        gap: 10px;
+        @include global.fluid-property(gap, 46.5rem, 75rem, 0.4rem, 0.625rem);
 
-        padding: 8px 16px;
+        padding: 0.5rem 1rem;
 
         border-radius: 8px;
         border-style: solid;
@@ -176,16 +178,14 @@
         box-shadow: 1.5px 1.5px 0 black;
 
         h4 {
-            font-family: "Atkinson Hyperlegible";
-            font-size: 18px;
-            font-weight: 400;
+            @include global.font-sans(0.8rem, 1.125rem, 400);
 
             margin: 0;
         }
 
         img {
-            width: 28px;
-            height: 28px;
+            @include global.fluid-property(width, 46.5rem, 75rem, 1.2rem, 1.75rem);
+            @include global.fluid-property(height, 46.5rem, 75rem, 1.2rem, 1.75rem);
 
             margin: 0;
         }

@@ -1,89 +1,81 @@
 @use "sass:map";
 
-@use "../../abstracts/color.scss" as c;
+@use "../../abstracts/color.scss";
+@use "../../global.scss";
 
 .highlighted-post {
     width: 100%;
 
     margin: 0;
-    padding: 32px;
+    padding: 2rem;
+    @include global.fluid-property(padding-right, 23.4375rem, 75rem, 1.5rem, 3rem);
 
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    align-items: start;
 
     background-color: #fecdd3;
 
     border-left-style: solid;
     border-left-color: black;
-    border-left-width: 4px;
+    border-left-width: 0.25rem;
 
     h3 {
-        font-family: "IBM Plex Mono";
-        font-weight: 500;
-        font-size: 32px;
-        line-height: 32px;
+        @include global.font-mono(1.5rem, 2rem, 500);
+        line-height: 2rem;
 
         margin: 0;
+        margin-bottom: 2rem;
     }
 
     .post {
         max-width: 504px; ////(568-64)
-        width: 100%;
 
         background-color: white;
 
-        border-radius: 15px;
+        border-radius: 1rem;
         border-style: solid;
         border-color: black;
         border-width: 3px;
 
-        box-shadow: 4px 4px 0 black;
+        box-shadow: 0.25rem 0.25rem 0 black;
 
-        padding: 32px;
+        padding: 2rem;
 
         &-time {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 0.5rem;
 
             margin: 0;
-            margin-bottom: 16px;
+            @include global.fluid-property(margin-bottom, 23.4375rem, 75rem, 0.4rem, 1rem);
 
             p {
                 color: #666;
 
-                font-family: "Atkinson Hyperlegible";
-                font-size: 20px;
-                font-weight: 400;
-
-                line-height: 150%;
+                @include global.font-sans(1rem, 1.25rem, 500);
 
                 margin: 0;
             }
 
             img {
-                width: 24px;
-                height: 24px;
+                @include global.fluid-property(width, 23.4375rem, 75rem, 1.2rem, 1.5rem);
+                @include global.fluid-property(height, 23.4375rem, 75rem, 1.2rem, 1.5rem);
 
                 margin: 0;
             }
         }
 
         &-title {
-            font-family: "IBM Plex Mono";
-            font-weight: 700;
-            font-size: 48px;
-            line-height: 48px;
+            @include global.font-mono(2rem, 3rem, 700);
 
             margin: 0;
-            margin-bottom: 32px;
+            margin-bottom: 0.5em;
         }
 
         &-description {
-            font-family: "Atkinson Hyperlegible";
-            font-size: 24px;
-            font-weight: 400;
+            @include global.font-sans(1rem, 1.5rem, 400);
+            line-height: 100%;
 
             margin: 0;
             margin-bottom: 32px;
@@ -105,9 +97,8 @@
             padding: 0;
 
             li {
-                font-family: "Atkinson Hyperlegible";
-                font-size: 18px;
-                font-weight: 400;
+                @include global.font-sans(0.8rem, 1.125rem, 400);
+                line-height: 100%;
 
                 padding: 8px 16px;
                 background-color: #FAFAFA;
@@ -134,8 +125,8 @@
             color: black;
             text-decoration: none;
 
-            padding: 16px 16px;
-            background-color: map.get(c.$colors, "primary");
+            @include global.fluid-property(padding, 23.4375rem, 75rem, 0.5rem, 1rem);
+            background-color: map.get(color.$colors, "primary");
 
             border-radius: 12px;
             border-style: solid;
@@ -145,8 +136,8 @@
             box-shadow: 3px 3px 0 black;
 
             img {
-                width: 28px;
-                height: 28px;
+                @include global.fluid-property(width, 23.4375rem, 75rem, 1rem, 1.75rem);
+                @include global.fluid-property(height, 23.4375rem, 75rem, 1rem, 1.75rem);
 
                 margin: 0;
             }
@@ -158,5 +149,24 @@
                 box-shadow: 0px 0px 0 black;
             }
         }
+    }
+}
+
+@media (max-width: 1000px) {
+    .highlighted-post {
+        // Fix border
+        border-left-style: solid;
+        border-left-color: black;
+        border-left-width: 0;
+
+        border-top-style: solid;
+        border-top-color: black;
+        border-top-width: 0.25rem;
+
+        .post {
+            // Put post in the middle
+            align-self: center;
+        }
+        
     }
 }

@@ -5,8 +5,15 @@
     padding: 0;
 
     display: flex;
+    flex-direction: row;
 
     border-top-style: solid;
     border-top-color: black;
     border-top-width: 4px;
+}
+
+@media (max-width: 1000px) {
+    .content {
+        flex-direction: column;
+    }
 }
