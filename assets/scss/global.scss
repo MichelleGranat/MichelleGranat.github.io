@@ -1,10 +1,32 @@
-@use "sass:map";
+@use "sass:math";
 
-@use "abstracts/color.scss" as c;
+// Prevents text from being selectable
+@mixin prevent-select {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
 
-body {
-    padding: 0;
-    margin: 0;
+// Calculates fluid font size
+// (source: https://chriskirknielsen.com/blog/modern-fluid-typography-with-clamp/)
+@mixin fluid-type($min-vw, $max-vw, $min-value, $max-value) {
+	$factor: math.div(1, ($max-vw - $min-vw)) * ($max-value - $min-value);
+	$calc-value: unquote('#{ $min-value - ($min-vw * $factor) } + #{ 100vw * $factor }');
 
-    background-color: map.get(c.$colors, "background");
+	font-size: $min-value; // Fallback for older browsers
+	font-size: clamp(#{if($min-value > $max-value, $max-value, $min-value)}, #{$calc-value}, #{if($min-value > $max-value, $min-value, $max-value)});
+}
+
+// Sets mono font
+@mixin font-mono($min-size, $max-size, $weight) {
+    font-family: "IBM Plex Mono";
+    @include fluid-type(23.4375rem, 75rem, $min-size, $max-size); // 375px, 1200px
+    font-weight: $weight;
+}
+
+// Sets sans font
+@mixin font-sans($min-size, $max-size, $weight) {
+    font-family: "Atkinson Hyperlegible";
+    @include fluid-type(375px, 1200px, $min-size, $max-size);
+    font-weight: $weight;
 }
