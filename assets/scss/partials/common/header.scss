@@ -14,7 +14,6 @@
 }
 
 .header-logo {
-    @include fluid.prevent-select;
     @include fluid.font-mono(1.2rem, 2rem, 700);
 
     color: white;

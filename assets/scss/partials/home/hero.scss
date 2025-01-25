@@ -50,15 +50,15 @@
     @include fluid.property(gap, 46.5rem, 75rem, 1.5rem, 2rem);
 
     &-github {
-        @include fluid.social(map.get(color.$colors, "slate"));
+        background-color: map.get(color.$colors, "slate");
     }
 
     &-bluesky {
-        @include fluid.social(map.get(color.$colors, "sky"));
+        background-color: map.get(color.$colors, "sky");
     }
 
     &-email {
-        @include fluid.social(map.get(color.$colors, "teal"));
+        background-color: map.get(color.$colors, "teal");
     }
 }
 
@@ -71,21 +71,6 @@
 .hero-text {
     margin-bottom: 1.8rem;
     text-align: start;
-
-    h1 {
-        @include fluid.font-mono(0.8rem, 4.35rem, 600);
-
-        margin: 0;
-        margin-bottom: 0.05em;
-    }
-    p {
-        @include fluid.font-sans(0.8rem, 1.5rem, 400);
-
-        max-width: 45ch;
-
-        color: #1A1A1A;
-        margin: 0;
-    }
 }
 
 @include responsive.md {
@@ -105,8 +90,6 @@
 
 .hero-cta {
     align-self: start;
-
-    @include fluid.button(map.get(color.$colors, "primary" ));
 
     display: flex;
     align-items: center;

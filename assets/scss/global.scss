@@ -1,0 +1,118 @@
+@use "sass:map";
+@use "./utils/color.scss";
+@use "./utils/fluid.scss";
+
+/** TEXT **/
+.prevent-select {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+.title-large {
+    @include fluid.font-mono(0.8rem, 4.35rem, 600);
+
+    margin: 0;
+    margin-bottom: 0.05em;
+}
+
+.title-medium {
+    @include fluid.font-mono(2rem, 3rem, 700);
+
+    margin: 0;
+    margin-bottom: 0.5em;
+}
+
+.content-medium {
+    @include fluid.font-sans(0.8rem, 1.5rem, 400);
+
+    max-width: 45ch;
+
+    color: #1A1A1A;
+    margin: 0;
+}
+
+/** BUTTON **/
+.btn {
+    // Basic style
+    text-decoration: none;
+    color: black;
+    align-self: center; 
+
+    // Button color
+    background-color: map.get(color.$colors, "primary");
+
+    // Button text
+    @include fluid.font-mono(0.9rem, 1.5rem, 700);
+
+    // Layout
+    padding: 0.5em 0.9em;
+    margin: 0;
+
+    // Border
+    @include fluid.property(border-radius, 23.4375rem, 75rem, 0.5rem, 1rem);
+    border-style: solid;
+    border-color: black;
+    @include fluid.property(border-width, 23.4375rem, 75rem, 0.125rem, 0.1875rem);
+
+    // Shadow
+    box-shadow: 0.25rem 0.25rem black;
+
+    // Animation
+    transition-duration: 100ms;
+    transition-timing-function: ease;
+    &:hover {
+        transform: translate(4px, 4px);
+        box-shadow: 0px 0px 0 black;
+    }
+
+    // TODO: fix animation
+    &:active {
+        transform: translate(4px, 4px);
+        box-shadow: 0px 0px 0 black;
+    }
+
+    &-icon {
+        // Layout
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        // Size
+        @include fluid.property(width, 46.5rem, 75rem, 3.5rem, 4.5rem);
+        @include fluid.property(height, 46.5rem, 75rem, 3.5rem, 4.5rem);
+
+        img {
+            @include fluid.property(width, 46.5rem, 75rem, 2.2rem, 2.625rem);
+            @include fluid.property(height, 46.5rem, 75rem, 2.2rem, 2.625rem);
+        }
+    }
+}
+
+/** TAG **/
+.tag {
+    @include fluid.font-sans(0.8rem, 1.125rem, 400);
+    line-height: 100%;
+
+    @include fluid.property(padding-left, 46.5rem, 75rem, 0.8rem, 1rem);
+    @include fluid.property(padding-right, 46.5rem, 75rem, 0.8rem, 1rem);
+    @include fluid.property(padding-top, 46.5rem, 75rem, 0.4rem, 0.5rem);
+    @include fluid.property(padding-bottom, 46.5rem, 75rem, 0.4rem, 0.5rem);
+
+    background-color: #FAFAFA;
+
+    @include fluid.property(border-radius, 46.5rem, 75rem, 0.4rem, 0.5rem);
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+
+    box-shadow: 3px 3px 0 black;
+
+    transition-duration: 100ms;
+    transition-timing-function: ease;
+    &:hover {
+        transform: translate(3px, 3px);
+        box-shadow: 0px 0px 0 black;
+    }
+}

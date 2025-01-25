@@ -38,13 +38,6 @@
 
 /** TEXT **/
 
-// Prevents text from being selectable
-@mixin prevent-select {
-    -webkit-user-select: none; /* Safari */
-    -ms-user-select: none; /* IE 10 and IE 11 */
-    user-select: none; /* Standard syntax */
-}
-
 // Calculates fluid font size
 // (source: https://chriskirknielsen.com/blog/modern-fluid-typography-with-clamp/)
 @mixin type($min-vw, $max-vw, $min-value, $max-value) {
@@ -71,40 +64,6 @@
 }
 
 /** ELEMENTS **/
-
-// Sets styling for a button
-@mixin button($color) {
-    // Basic style
-    text-decoration: none;
-    color: black;
-
-    // Button color
-    background-color: $color;
-
-    // Button text
-    @include font-mono(0.9rem, 1.5rem, 700);
-
-    // Layout
-    padding: 0.5em 0.9em;
-    margin: 0;
-
-    // Border
-    @include property(border-radius, 23.4375rem, 75rem, 0.5rem, 1rem);
-    border-style: solid;
-    border-color: black;
-    @include property(border-width, 23.4375rem, 75rem, 0.125rem, 0.1875rem);
-
-    // Shadow
-    @include shadow(23.4375rem, 75rem, 0.125rem, 0.25rem);
-
-    // Animation
-    transition-duration: 100ms;
-    transition-timing-function: ease;
-    &:hover {
-        transform: translate(4px, 4px);
-        box-shadow: 0px 0px 0 black;
-    }
-}
 
 // Sets styling for a social media element
 @mixin social($color) {

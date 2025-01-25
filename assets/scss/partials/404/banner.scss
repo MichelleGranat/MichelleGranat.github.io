@@ -56,9 +56,3 @@
     }
 }
 
-.banner-button {
-    align-self: center; 
-
-    @include fluid.button(map.get(color.$colors, "primary" ));
-}
-
