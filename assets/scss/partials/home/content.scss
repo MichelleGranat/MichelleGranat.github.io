@@ -1,19 +1,22 @@
+@use "../../abstracts/responsive.scss";
+
 .content {
     width: 100%;
 
     margin: 0;
     padding: 0;
 
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 1fr;
 
     border-top-style: solid;
     border-top-color: black;
     border-top-width: 4px;
 }
 
-@media (max-width: 1000px) {
+@include responsive.md {
     .content {
-        flex-direction: column;
+        grid-template-columns: 1fr;
     }
 }

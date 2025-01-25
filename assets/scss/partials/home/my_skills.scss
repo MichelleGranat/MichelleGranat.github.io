@@ -5,22 +5,13 @@
 @use "../../global.scss";
 
 .my-skills {
-    width: 100%;
-
     margin: 0;
-    // padding: 2rem;
 
     background-color: #bbf7d0;
 
     display: flex;
     flex-direction: column;
     align-items: end;
-}
-
-@media (max-width: 1000px) {
-    .my-skills {
-        align-items: center;
-    }
 }
 
 .my-skills .container {
@@ -40,154 +31,241 @@
         margin-bottom: 2rem;
     }
 
-    .tabs {
-        width: 100%;
+    .widget {
         display: flex;
+        flex-direction: column;
 
-        padding: 0;
-        margin: 0;
-
-        .tab {
-            flex-grow: 1;
-            text-align: center;
-            padding: 12px 16px;
-
+        .tabs {
+            display: flex;
+            flex-direction: row;
+    
+            padding: 0;
+            margin: 0;
+    
+            .tab {
+                flex-grow: 1;
+                text-align: center;
+                padding: 0.75rem 1rem;
+    
+                background-color: white;
+    
+                border-radius: 0px;
+                border-style: solid none none solid;
+                border-color: black;
+                border-width: 3px;
+    
+                cursor: pointer;
+                white-space: nowrap;
+    
+                @include global.font-mono(0.8rem, 1.25rem, 500);
+                line-height: 1.25rem;
+    
+                -webkit-user-select: none; /* Safari */
+                -ms-user-select: none; /* IE 10 and IE 11 */
+                user-select: none; /* Standard syntax */
+    
+                transition-duration: 100ms;
+                transition-timing-function: ease;
+            }
+    
+            :first-child {
+                border-radius: 1rem 0px 0px 0px;
+            }
+    
+            :last-child {
+                border-radius: 0px 1rem 0px 0px;
+                border-style: solid solid none solid;
+                box-shadow: 0.25rem 0.25rem 0 black;
+            }
+    
+            .active {
+                background-color: map.get(color.$colors, "primary");
+            }
+        }
+    
+        .tabs-content {
+            list-style-type: none;
+    
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+    
             background-color: white;
-
-            border-radius: 0px;
-            border-style: solid none none solid;
+    
+            border-radius: 0px 0px 1rem 1rem;
+            border-style: solid solid solid solid;
             border-color: black;
             border-width: 3px;
-
-            cursor: pointer;
-
-            @include global.font-mono(0.8rem, 1.25rem, 500);
-            line-height: 1.25rem;
-
-            -webkit-user-select: none; /* Safari */
-            -ms-user-select: none; /* IE 10 and IE 11 */
-            user-select: none; /* Standard syntax */
-
-            transition-duration: 100ms;
-            transition-timing-function: ease;
+    
+            box-shadow: 4px 4px 0 black;
+    
+            padding: 2rem;
+            margin: 0;
+    
+            .active {
+                display: flex;
+            }
+    
+            .rust {
+                background-color: #FDBA74;
+            }
+    
+            .go {
+                background-color: #7DD3FC;
+            }
+    
+            .cpp {
+                background-color: #A5B4FC;
+            }
+    
+            .linux {
+                background-color: #FDE68A;
+            }
+    
+            .docker {
+                background-color: #7DD3FC;
+            }
+            
+            .bash {
+                background-color: #F1F5F9;
+            }
+    
+            .html {
+                background-color: #FDBA74;
+            }
+    
+            .tailwind {
+                background-color: #A5F3FC;
+            }
+    
+            .typescript {
+                background-color: #7DD3FC;
+            }
+    
+            .svelte {
+                background-color: #FDBA74;
+            }
+    
+            .git {
+                background-color: #FCA5A5;
+            }
+    
+            .hugo {
+                background-color: #F9A8D4;
+            }
+    
+            .sass {
+                background-color: #FDA4AF;
+            }
         }
-
-        :first-child {
-            border-radius: 1rem 0px 0px 0px;
-        }
-
-        :last-child {
-            border-radius: 0px 1rem 0px 0px;
-            border-style: solid solid none solid;
-            box-shadow: 0.25rem 0.25rem 0 black;
-        }
-
-        .active {
-            background-color: map.get(color.$colors, "primary");
+    
+        li {
+            display: none;
+            align-items: center;
+            @include global.fluid-property(gap, 46.5rem, 75rem, 0.4rem, 0.625rem);
+    
+            padding: 0.5rem 1rem;
+    
+            border-radius: 8px;
+            border-style: solid;
+            border-color: black;
+            border-width: 2px;
+    
+            box-shadow: 1.5px 1.5px 0 black;
+    
+            h4 {
+                @include global.font-sans(0.8rem, 1.125rem, 400);
+    
+                margin: 0;
+            }
+    
+            img {
+                @include global.fluid-property(width, 46.5rem, 75rem, 1.2rem, 1.75rem);
+                @include global.fluid-property(height, 46.5rem, 75rem, 1.2rem, 1.75rem);
+    
+                margin: 0;
+            }
         }
     }
 
-    .tabs-content {
-        list-style-type: none;
+}
 
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
+@include responsive.lg {
+    .my-skills .container {
+        .widget {
+            flex-direction: row;
 
-        background-color: white;
+            .tabs {
+                flex-direction: column;
 
-        border-radius: 0px 0px 15px 15px;
-        border-style: solid solid solid solid;
-        border-color: black;
-        border-width: 3px;
+                .tab {
+                    padding: 0.65rem 0.9rem;
+                    @include global.font-mono(0.4rem, 1.25rem, 500);
+                }
 
-        box-shadow: 4px 4px 0 black;
+                :last-child {
+                    border-radius: 0px 0px 0px 1rem;
+                    border-style: solid none solid solid;
+                    box-shadow: 0.25rem 0.25rem 0 black;
+                }
+            }
 
-        padding: 2rem;
-        margin: 0;
+            .tabs-content {
+                border-radius: 0px 1rem 1rem 0px;
+            }
 
-        .active {
-            display: flex;
-        }
+            li {
+                padding: 0.4rem 0.9rem;
 
-        .rust {
-            background-color: #FDBA74;
-        }
+                h4 {
+                    @include global.font-sans(0.6rem, 1.125rem, 400);
+                }
 
-        .go {
-            background-color: #7DD3FC;
-        }
-
-        .cpp {
-            background-color: #A5B4FC;
-        }
-
-        .linux {
-            background-color: #FDE68A;
-        }
-
-        .docker {
-            background-color: #7DD3FC;
-        }
-        
-        .bash {
-            background-color: #F1F5F9;
-        }
-
-        .html {
-            background-color: #FDBA74;
-        }
-
-        .tailwind {
-            background-color: #A5F3FC;
-        }
-
-        .typescript {
-            background-color: #7DD3FC;
-        }
-
-        .svelte {
-            background-color: #FDBA74;
-        }
-
-        .git {
-            background-color: #FCA5A5;
-        }
-
-        .hugo {
-            background-color: #F9A8D4;
-        }
-
-        .sass {
-            background-color: #FDA4AF;
+                img {
+                    @include global.fluid-property(width, 46.5rem, 75rem, 1rem, 1.75rem);
+                    @include global.fluid-property(height, 46.5rem, 75rem, 1rem, 1.75rem);
+                }
+            }
         }
     }
+}
 
-    li {
-        display: none;
-        align-items: center;
-        @include global.fluid-property(gap, 46.5rem, 75rem, 0.4rem, 0.625rem);
+@include responsive.md {
+    .my-skills .container {
+        .widget {
+            flex-direction: column;
 
-        padding: 0.5rem 1rem;
+            .tabs {
+                flex-direction: row;
 
-        border-radius: 8px;
-        border-style: solid;
-        border-color: black;
-        border-width: 2px;
+                .tab {
+                    padding: 0.3rem 0.8rem;
+                    @include global.font-mono(0.8rem, 1.25rem, 500);
+                }
 
-        box-shadow: 1.5px 1.5px 0 black;
+                :last-child {
+                    border-radius: 0px 1rem 0px 0px;
+                    border-style: solid solid none solid;
+                    box-shadow: 0.25rem 0.25rem 0 black;
+                }
+            }
 
-        h4 {
-            @include global.font-sans(0.8rem, 1.125rem, 400);
+            .tabs-content {
+                border-radius: 0px 0px 1rem 1rem;
+            }
 
-            margin: 0;
-        }
+            li {
+                padding: 0.35rem 0.8rem;
 
-        img {
-            @include global.fluid-property(width, 46.5rem, 75rem, 1.2rem, 1.75rem);
-            @include global.fluid-property(height, 46.5rem, 75rem, 1.2rem, 1.75rem);
+                h4 {
+                    @include global.font-sans(0.8rem, 1.125rem, 400);
+                }
 
-            margin: 0;
+                img {
+                    @include global.fluid-property(width, 46.5rem, 75rem, 1.2rem, 1.75rem);
+                    @include global.fluid-property(height, 46.5rem, 75rem, 1.2rem, 1.75rem);
+                }
+            }
         }
     }
 }

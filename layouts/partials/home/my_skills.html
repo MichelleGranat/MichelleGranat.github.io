@@ -1,68 +1,71 @@
 <div class="my-skills">
     <div class="container">
         <h3>My Skills:</h3>
-        <div class="tabs">
-            <div class="tab active" id="lowlevel">Low Level</div>
-            <div class="tab" id="backend">Backend</div>
-            <div class="tab" id="devops">DevOps</div>
-            <div class="tab" id="frontend">Frontend</div>
+        <div class="widget">
+            <div class="tabs">
+                <div class="tab active" id="lowlevel">Low Level</div>
+                <div class="tab" id="backend">Backend</div>
+                <div class="tab" id="devops">DevOps</div>
+                <div class="tab" id="frontend">Frontend</div>
+            </div>
+    
+            <ul class="tabs-content">
+                <li class="rust frontend backend lowlevel active">
+                    <img src="svg/dev/rust.svg" />
+                    <h4>Rust</h4>
+                </li>
+                <li class="go backend lowlevel active">
+                    <img src="svg/dev/go.svg" />
+                    <h4>Go</h4>
+                </li>
+                <li class="cpp lowlevel active">
+                    <img src="svg/dev/cpp.svg" />
+                    <h4>C/C++</h4>
+                </li>
+                <li class="linux devops lowlevel active">
+                    <img src="svg/dev/linux.svg" />
+                    <h4>Linux</h4>
+                </li>
+                <li class="docker devops">
+                    <img src="svg/dev/docker.svg" />
+                    <h4>Docker</h4>
+                </li>
+                <li class="bash devops">
+                    <img src="svg/dev/bash.svg" />
+                    <h4>Bash</h4>
+                </li>
+                <li class="html frontend">
+                    <img src="svg/dev/html.svg" />
+                    <h4>HTML</h4>
+                </li>
+                <li class="tailwind frontend">
+                    <img src="svg/dev/tailwind.svg" />
+                    <h4>TailwindCSS</h4>
+                </li>
+                <li class="typescript frontend backend">
+                    <img src="svg/dev/typescript.svg" />
+                    <h4>Typescript</h4>
+                </li>
+                <li class="svelte frontend">
+                    <img src="svg/dev/svelte.svg" />
+                    <h4>Svelte</h4>
+                </li>
+                <li class="git frontend backend devops lowlevel active">
+                    <img src="svg/dev/git.svg" />
+                    <h4>Git</h4>
+                </li>
+                <li class="hugo frontend active">
+                    <img src="svg/dev/hugo.svg" />
+                    <h4>HUGO</h4>
+                </li>
+                <li class="sass frontend active">
+                    <img src="svg/dev/sass.svg" />
+                    <h4>Sass</h4>
+                </li>
+            </ul>
         </div>
-
-        <ul class="tabs-content">
-            <li class="rust frontend backend lowlevel active">
-                <img src="svg/dev/rust.svg" />
-                <h4>Rust</h4>
-            </li>
-            <li class="go backend lowlevel active">
-                <img src="svg/dev/go.svg" />
-                <h4>Go</h4>
-            </li>
-            <li class="cpp lowlevel active">
-                <img src="svg/dev/cpp.svg" />
-                <h4>C/C++</h4>
-            </li>
-            <li class="linux devops lowlevel active">
-                <img src="svg/dev/linux.svg" />
-                <h4>Linux</h4>
-            </li>
-            <li class="docker devops">
-                <img src="svg/dev/docker.svg" />
-                <h4>Docker</h4>
-            </li>
-            <li class="bash devops">
-                <img src="svg/dev/bash.svg" />
-                <h4>Bash</h4>
-            </li>
-            <li class="html frontend">
-                <img src="svg/dev/html.svg" />
-                <h4>HTML</h4>
-            </li>
-            <li class="tailwind frontend">
-                <img src="svg/dev/tailwind.svg" />
-                <h4>TailwindCSS</h4>
-            </li>
-            <li class="typescript frontend backend">
-                <img src="svg/dev/typescript.svg" />
-                <h4>Typescript</h4>
-            </li>
-            <li class="svelte frontend">
-                <img src="svg/dev/svelte.svg" />
-                <h4>Svelte</h4>
-            </li>
-            <li class="git frontend backend devops lowlevel active">
-                <img src="svg/dev/git.svg" />
-                <h4>Git</h4>
-            </li>
-            <li class="hugo frontend active">
-                <img src="svg/dev/hugo.svg" />
-                <h4>HUGO</h4>
-            </li>
-            <li class="sass frontend active">
-                <img src="svg/dev/sass.svg" />
-                <h4>Sass</h4>
-            </li>
-        </ul>
     </div>
+        
     <script>
         const tabs = document.querySelectorAll('.tab')
         const skills = document.querySelectorAll('.tabs-content li')

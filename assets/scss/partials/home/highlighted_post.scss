@@ -1,11 +1,10 @@
 @use "sass:map";
 
 @use "../../abstracts/color.scss";
+@use "../../abstracts/responsive.scss";
 @use "../../global.scss";
 
 .highlighted-post {
-    width: 100%;
-
     margin: 0;
     padding: 2rem;
     @include global.fluid-property(padding-right, 23.4375rem, 75rem, 1.5rem, 3rem);
@@ -152,7 +151,7 @@
     }
 }
 
-@media (max-width: 1000px) {
+@include responsive.md {
     .highlighted-post {
         // Fix border
         border-left-style: solid;
