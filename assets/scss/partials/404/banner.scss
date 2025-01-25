@@ -1,8 +1,8 @@
 @use "sass:map";
 
-@use "../../abstracts/color.scss";
-@use "../../abstracts/responsive.scss";
-@use "../../global.scss";
+@use "../../utils/color.scss";
+@use "../../utils/responsive.scss";
+@use "../../utils/fluid.scss";
 
 .banner {
     max-width: 78rem;
@@ -11,7 +11,7 @@
     margin: auto;
     margin-top: 1.2rem;
 
-    @include global.fluid-padding(23.4375rem, 75rem, 1.5rem, 3rem);
+    @include fluid.padding(23.4375rem, 75rem, 1.5rem, 3rem);
 
     display: flex;
     flex-direction: row;
@@ -31,13 +31,13 @@
 
 .banner-right {
     min-width: 15rem;
-    @include global.fluid-property(width, 46.5rem, 75rem, 15rem, 22rem);
+    @include fluid.property(width, 46.5rem, 75rem, 15rem, 22rem);
 }
 
 .banner-left {
     display: flex;
     flex-direction: column;
-    @include global.fluid-property(gap, 23.4375rem, 75rem, 1rem, 3.5rem);
+    @include fluid.property(gap, 23.4375rem, 75rem, 1rem, 3.5rem);
 }
 
 .banner-text {
@@ -46,12 +46,12 @@
     align-items: center;
 
     h1 {
-        @include global.font-mono(3rem, 6rem, 600);
+        @include fluid.font-mono(3rem, 6rem, 600);
         margin: 0;
     }
 
     p {
-        @include global.font-mono(1.2rem, 4rem, 600);
+        @include fluid.font-mono(1.2rem, 4rem, 600);
         margin: 0;
     }
 }
@@ -59,6 +59,6 @@
 .banner-button {
     align-self: center; 
 
-    @include global.button(map.get(color.$colors, "primary" ));
+    @include fluid.button(map.get(color.$colors, "primary" ));
 }
 

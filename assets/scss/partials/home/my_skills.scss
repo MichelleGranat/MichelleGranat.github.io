@@ -1,8 +1,8 @@
 @use "sass:map";
 
-@use "../../abstracts/color.scss";
-@use "../../abstracts/responsive.scss";
-@use "../../global.scss";
+@use "../../utils/color.scss";
+@use "../../utils/responsive.scss";
+@use "../../utils/fluid.scss";
 
 .my-skills {
     margin: 0;
@@ -25,13 +25,13 @@
     max-width: 37rem;
     
     padding: 2rem;
-    @include global.fluid-property(padding-left, 23.4375rem, 75rem, 1.5rem, 3rem);
+    @include fluid.property(padding-left, 23.4375rem, 75rem, 1.5rem, 3rem);
 
     display: flex;
     flex-direction: column;
 
     h3 {
-        @include global.font-mono(1.5rem, 2rem, 500);
+        @include fluid.font-mono(1.5rem, 2rem, 500);
         line-height: 2rem;
 
         margin: 0;
@@ -53,14 +53,14 @@
     
             .tab {
                 text-align: center;
-                @include global.fluid-property(padding-top, 23.4375rem, 75rem, 0.4rem, 0.75rem);
-                @include global.fluid-property(padding-bottom, 23.4375rem, 75rem, 0.4rem, 0.75rem);
-                @include global.fluid-padding(23.4375rem, 75rem, 0.6rem, 1rem);
+                @include fluid.property(padding-top, 23.4375rem, 75rem, 0.4rem, 0.75rem);
+                @include fluid.property(padding-bottom, 23.4375rem, 75rem, 0.4rem, 0.75rem);
+                @include fluid.padding(23.4375rem, 75rem, 0.6rem, 1rem);
     
                 background-color: white;
     
                 border-radius: 0.5rem;
-                @include global.fluid-property(border-width, 23.4375rem, 75rem, 0.125rem, 0.1875rem);
+                @include fluid.property(border-width, 23.4375rem, 75rem, 0.125rem, 0.1875rem);
                 border-style: solid;
                 border-color: black;
 
@@ -69,7 +69,7 @@
                 cursor: pointer;
                 white-space: nowrap;
     
-                @include global.font-mono(0.8rem, 1.25rem, 500);
+                @include fluid.font-mono(0.8rem, 1.25rem, 500);
                 line-height: 1.25rem;
     
                 -webkit-user-select: none; /* Safari */
@@ -165,7 +165,7 @@
         li {
             display: none;
             align-items: center;
-            @include global.fluid-property(gap, 46.5rem, 75rem, 0.4rem, 0.625rem);
+            @include fluid.property(gap, 46.5rem, 75rem, 0.4rem, 0.625rem);
     
             padding: 0.5rem 1rem;
     
@@ -177,14 +177,14 @@
             box-shadow: 1.5px 1.5px 0 black;
     
             h4 {
-                @include global.font-sans(0.8rem, 1.125rem, 400);
+                @include fluid.font-sans(0.8rem, 1.125rem, 400);
     
                 margin: 0;
             }
     
             img {
-                @include global.fluid-property(width, 46.5rem, 75rem, 1.2rem, 1.75rem);
-                @include global.fluid-property(height, 46.5rem, 75rem, 1.2rem, 1.75rem);
+                @include fluid.property(width, 46.5rem, 75rem, 1.2rem, 1.75rem);
+                @include fluid.property(height, 46.5rem, 75rem, 1.2rem, 1.75rem);
     
                 margin: 0;
             }
@@ -209,7 +209,7 @@
 
 //                 .tab {
 //                     padding: 0.65rem 0.9rem;
-//                     @include global.font-mono(0.4rem, 1.25rem, 500);
+//                     @include fluid.font-mono(0.4rem, 1.25rem, 500);
 //                 }
 
 //                 :last-child {
@@ -227,12 +227,12 @@
 //                 padding: 0.4rem 0.9rem;
 
 //                 h4 {
-//                     @include global.font-sans(0.6rem, 1.125rem, 400);
+//                     @include fluid.font-sans(0.6rem, 1.125rem, 400);
 //                 }
 
 //                 img {
-//                     @include global.fluid-property(width, 46.5rem, 75rem, 1rem, 1.75rem);
-//                     @include global.fluid-property(height, 46.5rem, 75rem, 1rem, 1.75rem);
+//                     @include fluid.property(width, 46.5rem, 75rem, 1rem, 1.75rem);
+//                     @include fluid.property(height, 46.5rem, 75rem, 1rem, 1.75rem);
 //                 }
 //             }
 //         }
@@ -249,7 +249,7 @@
 
 //                 .tab {
 //                     padding: 0.3rem 0.8rem;
-//                     @include global.font-mono(0.8rem, 1.25rem, 500);
+//                     @include fluid.font-mono(0.8rem, 1.25rem, 500);
 //                 }
 
 //                 :last-child {
@@ -267,12 +267,12 @@
 //                 padding: 0.35rem 0.8rem;
 
 //                 h4 {
-//                     @include global.font-sans(0.8rem, 1.125rem, 400);
+//                     @include fluid.font-sans(0.8rem, 1.125rem, 400);
 //                 }
 
 //                 img {
-//                     @include global.fluid-property(width, 46.5rem, 75rem, 1.2rem, 1.75rem);
-//                     @include global.fluid-property(height, 46.5rem, 75rem, 1.2rem, 1.75rem);
+//                     @include fluid.property(width, 46.5rem, 75rem, 1.2rem, 1.75rem);
+//                     @include fluid.property(height, 46.5rem, 75rem, 1.2rem, 1.75rem);
 //                 }
 //             }
 //         }

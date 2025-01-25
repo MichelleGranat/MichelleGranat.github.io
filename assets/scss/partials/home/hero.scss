@@ -1,8 +1,8 @@
 @use "sass:map";
 
-@use "../../abstracts/color.scss";
-@use "../../abstracts/responsive.scss";
-@use "../../global.scss";
+@use "../../utils/color.scss";
+@use "../../utils/responsive.scss";
+@use "../../utils/fluid.scss";
 
 .hero {
     max-width: 78rem;
@@ -10,10 +10,10 @@
     margin: 0;
     margin: auto;
     margin-top: 1rem;
-    @include global.fluid-property(margin-bottom, 23.4375rem, 75rem, 2rem, 4rem);
+    @include fluid.property(margin-bottom, 23.4375rem, 75rem, 2rem, 4rem);
 
-    @include global.fluid-property(padding-left, 23.4375rem, 75rem, 1.5rem, 3rem);
-    @include global.fluid-property(padding-right, 46.5rem, 75rem, 0rem, 3rem);
+    @include fluid.property(padding-left, 23.4375rem, 75rem, 1.5rem, 3rem);
+    @include fluid.property(padding-right, 46.5rem, 75rem, 0rem, 3rem);
 
     display: flex;
     justify-content: space-between;
@@ -23,7 +23,7 @@
 
 @include responsive.md {
     .hero {
-        @include global.fluid-property(padding-right, 23.4375rem, 75rem, 1.5rem, 3rem);
+        @include fluid.property(padding-right, 23.4375rem, 75rem, 1.5rem, 3rem);
 
         flex-direction: column;
 
@@ -42,23 +42,23 @@
 
 .avatar {
     min-width: 20rem;
-    @include global.fluid-property(width, 46.5rem, 75rem, 15rem, 28rem);
+    @include fluid.property(width, 46.5rem, 75rem, 15rem, 28rem);
 }
 
 .socials {
     display: flex;
-    @include global.fluid-property(gap, 46.5rem, 75rem, 1.5rem, 2rem);
+    @include fluid.property(gap, 46.5rem, 75rem, 1.5rem, 2rem);
 
     &-github {
-        @include global.social(map.get(color.$colors, "slate"));
+        @include fluid.social(map.get(color.$colors, "slate"));
     }
 
     &-bluesky {
-        @include global.social(map.get(color.$colors, "sky"));
+        @include fluid.social(map.get(color.$colors, "sky"));
     }
 
     &-email {
-        @include global.social(map.get(color.$colors, "teal"));
+        @include fluid.social(map.get(color.$colors, "teal"));
     }
 }
 
@@ -73,13 +73,13 @@
     text-align: start;
 
     h1 {
-        @include global.font-mono(0.8rem, 4.35rem, 600);
+        @include fluid.font-mono(0.8rem, 4.35rem, 600);
 
         margin: 0;
         margin-bottom: 0.05em;
     }
     p {
-        @include global.font-sans(0.8rem, 1.5rem, 400);
+        @include fluid.font-sans(0.8rem, 1.5rem, 400);
 
         max-width: 45ch;
 
@@ -94,11 +94,11 @@
         text-align: center;
 
         h1 {
-            @include global.font-mono(2rem, 5rem, 600);
+            @include fluid.font-mono(2rem, 5rem, 600);
         }
 
         p {
-            @include global.font-sans(1rem, 1.5rem, 400);
+            @include fluid.font-sans(1rem, 1.5rem, 400);
         }
     }
 }
@@ -106,7 +106,7 @@
 .hero-cta {
     align-self: start;
 
-    @include global.button(map.get(color.$colors, "primary" ));
+    @include fluid.button(map.get(color.$colors, "primary" ));
 
     display: flex;
     align-items: center;
