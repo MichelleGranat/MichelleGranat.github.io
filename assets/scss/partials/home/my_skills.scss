@@ -7,18 +7,25 @@
 .my-skills {
     margin: 0;
 
-    background-color: #bbf7d0;
+    // background-color: #bbf7d0;
+    background-color: white;
 
     display: flex;
     flex-direction: column;
     align-items: end;
 }
 
+@include responsive.md {
+    .my-skills {
+        align-items: center;
+    }
+}
+
 .my-skills .container {
+    max-width: 37rem;
+    
     padding: 2rem;
     @include global.fluid-property(padding-left, 23.4375rem, 75rem, 1.5rem, 3rem);
-
-    margin: 0;
 
     display: flex;
     flex-direction: column;
@@ -38,21 +45,26 @@
         .tabs {
             display: flex;
             flex-direction: row;
+            flex-wrap: wrap;
+            gap: 1rem;
     
             padding: 0;
             margin: 0;
     
             .tab {
-                flex-grow: 1;
                 text-align: center;
-                padding: 0.75rem 1rem;
+                @include global.fluid-property(padding-top, 23.4375rem, 75rem, 0.4rem, 0.75rem);
+                @include global.fluid-property(padding-bottom, 23.4375rem, 75rem, 0.4rem, 0.75rem);
+                @include global.fluid-padding(23.4375rem, 75rem, 0.6rem, 1rem);
     
                 background-color: white;
     
-                border-radius: 0px;
-                border-style: solid none none solid;
+                border-radius: 0.5rem;
+                @include global.fluid-property(border-width, 23.4375rem, 75rem, 0.125rem, 0.1875rem);
+                border-style: solid;
                 border-color: black;
-                border-width: 3px;
+
+                box-shadow: 3px 3px 0 black;
     
                 cursor: pointer;
                 white-space: nowrap;
@@ -68,16 +80,6 @@
                 transition-timing-function: ease;
             }
     
-            :first-child {
-                border-radius: 1rem 0px 0px 0px;
-            }
-    
-            :last-child {
-                border-radius: 0px 1rem 0px 0px;
-                border-style: solid solid none solid;
-                box-shadow: 0.25rem 0.25rem 0 black;
-            }
-    
             .active {
                 background-color: map.get(color.$colors, "primary");
             }
@@ -89,17 +91,18 @@
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-    
+
             background-color: white;
     
-            border-radius: 0px 0px 1rem 1rem;
-            border-style: solid solid solid solid;
-            border-color: black;
-            border-width: 3px;
+            // border-radius: 1rem;
+            // border-style: solid solid solid solid;
+            // border-color: black;
+            // border-width: 3px;
     
-            box-shadow: 4px 4px 0 black;
+            // box-shadow: 4px 4px 0 black;
     
-            padding: 2rem;
+            // padding: 2rem;
+            padding: 0;
             margin: 0;
     
             .active {
@@ -166,7 +169,7 @@
     
             padding: 0.5rem 1rem;
     
-            border-radius: 8px;
+            border-radius: 0.5rem;
             border-style: solid;
             border-color: black;
             border-width: 2px;
@@ -190,82 +193,88 @@
 
 }
 
-@include responsive.lg {
-    .my-skills .container {
-        .widget {
-            flex-direction: row;
-
-            .tabs {
-                flex-direction: column;
-
-                .tab {
-                    padding: 0.65rem 0.9rem;
-                    @include global.font-mono(0.4rem, 1.25rem, 500);
-                }
-
-                :last-child {
-                    border-radius: 0px 0px 0px 1rem;
-                    border-style: solid none solid solid;
-                    box-shadow: 0.25rem 0.25rem 0 black;
-                }
-            }
-
-            .tabs-content {
-                border-radius: 0px 1rem 1rem 0px;
-            }
-
-            li {
-                padding: 0.4rem 0.9rem;
-
-                h4 {
-                    @include global.font-sans(0.6rem, 1.125rem, 400);
-                }
-
-                img {
-                    @include global.fluid-property(width, 46.5rem, 75rem, 1rem, 1.75rem);
-                    @include global.fluid-property(height, 46.5rem, 75rem, 1rem, 1.75rem);
-                }
-            }
-        }
-    }
-}
-
 @include responsive.md {
     .my-skills .container {
-        .widget {
-            flex-direction: column;
-
-            .tabs {
-                flex-direction: row;
-
-                .tab {
-                    padding: 0.3rem 0.8rem;
-                    @include global.font-mono(0.8rem, 1.25rem, 500);
-                }
-
-                :last-child {
-                    border-radius: 0px 1rem 0px 0px;
-                    border-style: solid solid none solid;
-                    box-shadow: 0.25rem 0.25rem 0 black;
-                }
-            }
-
-            .tabs-content {
-                border-radius: 0px 0px 1rem 1rem;
-            }
-
-            li {
-                padding: 0.35rem 0.8rem;
-
-                h4 {
-                    @include global.font-sans(0.8rem, 1.125rem, 400);
-                }
-
-                img {
-                    @include global.fluid-property(width, 46.5rem, 75rem, 1.2rem, 1.75rem);
-                    @include global.fluid-property(height, 46.5rem, 75rem, 1.2rem, 1.75rem);
-                }
-            }
-        }
+        max-width: none;
     }
 }
+
+// @include responsive.lg {
+//     .my-skills .container {
+//         .widget {
+//             flex-direction: row;
+
+//             .tabs {
+//                 flex-direction: column;
+
+//                 .tab {
+//                     padding: 0.65rem 0.9rem;
+//                     @include global.font-mono(0.4rem, 1.25rem, 500);
+//                 }
+
+//                 :last-child {
+//                     border-radius: 0px 0px 0px 1rem;
+//                     border-style: solid none solid solid;
+//                     box-shadow: 0.25rem 0.25rem 0 black;
+//                 }
+//             }
+
+//             .tabs-content {
+//                 border-radius: 0px 1rem 1rem 0px;
+//             }
+
+//             li {
+//                 padding: 0.4rem 0.9rem;
+
+//                 h4 {
+//                     @include global.font-sans(0.6rem, 1.125rem, 400);
+//                 }
+
+//                 img {
+//                     @include global.fluid-property(width, 46.5rem, 75rem, 1rem, 1.75rem);
+//                     @include global.fluid-property(height, 46.5rem, 75rem, 1rem, 1.75rem);
+//                 }
+//             }
+//         }
+//     }
+// }
+
+// @include responsive.md {
+//     .my-skills .container {
+//         .widget {
+//             flex-direction: column;
+
+//             .tabs {
+//                 flex-direction: row;
+
+//                 .tab {
+//                     padding: 0.3rem 0.8rem;
+//                     @include global.font-mono(0.8rem, 1.25rem, 500);
+//                 }
+
+//                 :last-child {
+//                     border-radius: 0px 1rem 0px 0px;
+//                     border-style: solid solid none solid;
+//                     box-shadow: 0.25rem 0.25rem 0 black;
+//                 }
+//             }
+
+//             .tabs-content {
+//                 border-radius: 0px 0px 1rem 1rem;
+//             }
+
+//             li {
+//                 padding: 0.35rem 0.8rem;
+
+//                 h4 {
+//                     @include global.font-sans(0.8rem, 1.125rem, 400);
+//                 }
+
+//                 img {
+//                     @include global.fluid-property(width, 46.5rem, 75rem, 1.2rem, 1.75rem);
+//                     @include global.fluid-property(height, 46.5rem, 75rem, 1.2rem, 1.75rem);
+//                 }
+//             }
+//         }
+//     }
+// }
